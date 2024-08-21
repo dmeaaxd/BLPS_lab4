@@ -1,3 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/blps
+    username: postgres
+    password: password
+
+spring.jpa.generate-ddl: true
+
+server.port: 8081
+
 camunda.bpm.admin-user:
   id: admin
   password: admin
