@@ -1,10 +1,12 @@
-package ru.danmax.delegates;
+package ru.danmax.delegates.client;
 
 import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import ru.danmax.dto.AuthorizationDTO;
+import ru.danmax.entity.Client;
 import ru.danmax.service.ClientService;
 
 @Named("authorization")
@@ -17,9 +19,11 @@ public class AuthorizationDelegate implements JavaDelegate {
         String username = (String) delegateExecution.getVariable("username");
         String password = (String) delegateExecution.getVariable("password");
 
-        clientService.auth(AuthorizationDTO.builder()
+        Client client = clientService.auth(AuthorizationDTO.builder()
                 .username(username)
                 .password(password)
                 .build());
+
+        delegateExecution.setVariable("clientId", client.getId());
     }
 }

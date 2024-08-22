@@ -1,4 +1,4 @@
-package ru.danmax.delegates;
+package ru.danmax.delegates.client;
 
 import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;

@@ -11,6 +11,7 @@ import ru.danmax.repository.ClientRepository;
 import ru.danmax.utils.BCryptPasswordEncoder;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Service
@@ -19,7 +20,7 @@ public class ClientService {
     private ClientRepository clientRepository;
     private RoleRepository roleRepository;
 
-    public void auth(AuthorizationDTO authorizationDTO) throws Exception {
+    public Client auth(AuthorizationDTO authorizationDTO) throws Exception {
         if (authorizationDTO.isFieldEmpty()){
             throw new Exception("Fields cannot be empty");
         }
@@ -32,6 +33,8 @@ public class ClientService {
         if (!passwordEncoder.matches(authorizationDTO.getPassword(), client.getPassword())){
             throw new Exception("Incorrect user data");
         }
+
+        return client;
     }
 
     public void register(RegistrationDTO registrationDTO) throws Exception{
@@ -61,5 +64,22 @@ public class ClientService {
         client.setRoles(roles);
 
         clientRepository.save(client);
+    }
+
+    public boolean isClientSystemAdmin(Long clientId) throws Exception {
+        if (clientId == null){
+            throw new Exception("ClientId cannot be empty");
+        }
+
+        Client client = clientRepository.findById(clientId)
+                .orElseThrow(() -> new Exception("User not found"));
+
+        Set<Role> roles = client.getRoles();
+        for (Role role : roles){
+            if (Objects.equals(role.getName(), "SYSTEM_ADMIN")){
+                return true;
+            }
+        }
+        return false;
     }
 }
