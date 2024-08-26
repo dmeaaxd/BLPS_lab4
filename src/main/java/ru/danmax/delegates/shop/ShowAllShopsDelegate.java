@@ -17,6 +17,7 @@ public class ShowAllShopsDelegate implements JavaDelegate {
     public void execute(DelegateExecution delegateExecution) throws Exception {
         List<Shop> shops = shopService.getAll();
 
+        delegateExecution.setVariable("shopCount", shops.size());
         for (Shop shop : shops) {
             delegateExecution.setVariable("shop_" + shop.getId(), shop.getName());
         }

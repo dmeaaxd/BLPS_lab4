@@ -100,6 +100,7 @@ public class ShopService {
         try {
             clientRepository.deleteAll(shop.getAdmins());
 // TODO: Поправить, когда будет возможность
+
 //            discountRepository.deleteAll(shop.getDiscounts());
 //            favoriteRepository.deleteAll(favoriteRepository.findAllByShopId(shop.getId()));
 //            subscriptionRepository.deleteAll(subscriptionRepository.findAllByShopId(shop.getId()));
