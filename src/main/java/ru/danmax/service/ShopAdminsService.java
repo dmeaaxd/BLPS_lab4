@@ -74,4 +74,36 @@ public class ShopAdminsService {
             clientRepository.save(client);
         }
     }
+
+    public boolean isClientShopAdmin(Long clientId, Long shopId) throws Exception {
+        if (clientId == null){
+            throw new Exception("ClientId cannot be empty");
+        }
+
+        if (shopId == null){
+            throw new Exception("ShopId cannot be empty");
+        }
+
+        Client client = clientRepository.findById(clientId)
+                .orElseThrow(() -> new Exception("User not found"));
+
+        Shop shop = shopRepository.findById(shopId)
+                .orElseThrow(() -> new Exception("Shop not found"));
+
+        // Проверка на то, что в ролях есть роль "SHOP_ADMIN"
+        boolean roleFlag = false;
+        Role shop_admin = roleRepository.findByName("SHOP_ADMIN");
+        for (Role role : client.getRoles()){
+            if (role.equals(shop_admin)) {
+                roleFlag = true;
+                break;
+            }
+        }
+        if (!roleFlag){
+            return false;
+        }
+
+        // Проверка на то, что магазин у пользователя соответствует запрашиваемому магазину
+        return (client.getShop() != null && shop.equals(client.getShop()));
+    }
 }

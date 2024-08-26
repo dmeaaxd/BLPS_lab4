@@ -30,4 +30,12 @@ public class Shop {
     @OneToMany(mappedBy = "shop")
     private List<Client> admins; // Администраторы магазина
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Shop shop = (Shop) o;
+        return id.equals(shop.getId()) && name.equals(shop.getName());
+    }
+
 }
