@@ -8,10 +8,7 @@ import ru.danmax.dto.CreateShopDTO;
 import ru.danmax.dto.UpdateShopDTO;
 import ru.danmax.entity.Category;
 import ru.danmax.entity.Shop;
-import ru.danmax.repository.CategoryRepository;
-import ru.danmax.repository.ClientRepository;
-import ru.danmax.repository.DiscountRepository;
-import ru.danmax.repository.ShopRepository;
+import ru.danmax.repository.*;
 
 import java.util.List;
 
@@ -23,6 +20,7 @@ public class ShopService {
     private final ClientRepository clientRepository;
     private final CategoryRepository categoryRepository;
     private final DiscountRepository discountRepository;
+    private final FavoriteRepository favoriteRepository;
 
     public List<Shop> getAll() {
         return shopRepository.findAll();
@@ -102,9 +100,10 @@ public class ShopService {
         try {
             clientRepository.deleteAll(shop.getAdmins());
             discountRepository.deleteAll(shop.getDiscounts());
+            favoriteRepository.deleteAll(favoriteRepository.findAllByShopId(shop.getId()));
+
 // TODO: Добавить при удалении магазина удаление его из избранного и подписок
 
-//            favoriteRepository.deleteAll(favoriteRepository.findAllByShopId(shop.getId()));
 //            subscriptionRepository.deleteAll(subscriptionRepository.findAllByShopId(shop.getId()));
         } catch (Exception e) {
             throw new Exception("System error: Cannot delete related posts");
