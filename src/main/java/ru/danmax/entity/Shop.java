@@ -20,8 +20,8 @@ public class Shop {
     private String name;
     private String description;
 
-//    @OneToMany(mappedBy = "shop")
-//    private List<Discount> discounts;
+    @OneToMany(mappedBy = "shop")
+    private List<Discount> discounts;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

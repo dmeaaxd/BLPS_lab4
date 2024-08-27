@@ -4,10 +4,9 @@ import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
+import ru.danmax.entity.Discount;
 import ru.danmax.entity.Shop;
 import ru.danmax.service.ShopService;
-
-import java.util.List;
 
 @Named("showCurrentShop")
 @RequiredArgsConstructor
@@ -23,5 +22,9 @@ public class ShowCurrentShopDelegate implements JavaDelegate {
         delegateExecution.setVariable("currentShop_description", shop.getDescription());
         delegateExecution.setVariable("currentShop_category", shop.getCategory().getName());
 
+        delegateExecution.setVariable("discountCount", shop.getDiscounts().size());
+        for (Discount discount : shop.getDiscounts()){
+            delegateExecution.setVariable("currentShop_discount_" + discount.getId(), discount.getTitle());
+        }
     }
 }

@@ -11,25 +11,25 @@ import ru.danmax.dto.interfaces.FieldIsEmptyCheck;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateShopDTO implements FieldIsEmptyCheck, AllFieldIsEmptyCheck {
+public class UpdateDiscountDTO implements FieldIsEmptyCheck, AllFieldIsEmptyCheck {
 
-    private Long shopId;
-    private String name;
+    private Long discountId;
+    private String title;
     private String description;
-    private Long categoryId;
+    private String promoCode;
 
     @Override
     public boolean isFieldEmpty() {
-        if (shopId == null) return true;
-        if (name == null || name.isEmpty()) return true;
+        if (discountId == null) return true;
+        if (title == null || title.isEmpty()) return true;
         if (description == null || description.isEmpty()) return true;
-        return categoryId == null;
+        return promoCode == null || promoCode.isEmpty();
     }
 
     @Override
     public boolean isAllFieldsEmpty() {
-        return ((name == null || name.isEmpty()) &&
+        return ((title == null || title.isEmpty()) &&
                 (description == null || description.isEmpty()) &&
-                (categoryId == null));
+                (promoCode == null || promoCode.isEmpty()));
     }
 }

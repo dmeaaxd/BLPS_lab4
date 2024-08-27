@@ -10,6 +10,7 @@ import ru.danmax.entity.Category;
 import ru.danmax.entity.Shop;
 import ru.danmax.repository.CategoryRepository;
 import ru.danmax.repository.ClientRepository;
+import ru.danmax.repository.DiscountRepository;
 import ru.danmax.repository.ShopRepository;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class ShopService {
     private final ShopRepository shopRepository;
     private final ClientRepository clientRepository;
     private final CategoryRepository categoryRepository;
+    private final DiscountRepository discountRepository;
 
     public List<Shop> getAll() {
         return shopRepository.findAll();
@@ -99,9 +101,9 @@ public class ShopService {
 
         try {
             clientRepository.deleteAll(shop.getAdmins());
-// TODO: Поправить, когда будет возможность
+            discountRepository.deleteAll(shop.getDiscounts());
+// TODO: Добавить при удалении магазина удаление его из избранного и подписок
 
-//            discountRepository.deleteAll(shop.getDiscounts());
 //            favoriteRepository.deleteAll(favoriteRepository.findAllByShopId(shop.getId()));
 //            subscriptionRepository.deleteAll(subscriptionRepository.findAllByShopId(shop.getId()));
         } catch (Exception e) {
