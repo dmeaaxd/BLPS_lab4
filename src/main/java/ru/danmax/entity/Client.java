@@ -34,10 +34,10 @@ public class Client {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "billId")
-//    private Bill accountBill;
-//
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "billId")
+    private Bill accountBill;
+
     @ManyToOne
     @JoinColumn(name = "shop_id")
     private Shop shop; // Обозначает магазин, администратором которого он является

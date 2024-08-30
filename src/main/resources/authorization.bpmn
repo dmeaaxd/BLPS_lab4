@@ -20,8 +20,16 @@
     <bpmn:userTask id="Activity_1tnhup0" name="Fill authorization form">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="username" label="Логин" type="string" />
-          <camunda:formField id="password" label="Пароль" type="string" />
+          <camunda:formField id="username" label="Логин" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" config="1" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="password" label="Пароль" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" config="1" />
+            </camunda:validation>
+          </camunda:formField>
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0efhszr</bpmn:incoming>
