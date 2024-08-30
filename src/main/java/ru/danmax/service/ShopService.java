@@ -21,6 +21,7 @@ public class ShopService {
     private final CategoryRepository categoryRepository;
     private final DiscountRepository discountRepository;
     private final FavoriteRepository favoriteRepository;
+    private final SubscriptionRepository subscriptionRepository;
 
     public List<Shop> getAll() {
         return shopRepository.findAll();
@@ -95,16 +96,13 @@ public class ShopService {
         }
 
         Shop shop = shopRepository.findById(shopId)
-                .orElseThrow(() -> new ObjectNotFoundException(shopId, "Shop"));
+                .orElseThrow(() -> new Exception("Shop not found"));
 
         try {
             clientRepository.deleteAll(shop.getAdmins());
             discountRepository.deleteAll(shop.getDiscounts());
             favoriteRepository.deleteAll(favoriteRepository.findAllByShopId(shop.getId()));
-
-// TODO: Добавить при удалении магазина удаление его из избранного и подписок
-
-//            subscriptionRepository.deleteAll(subscriptionRepository.findAllByShopId(shop.getId()));
+            subscriptionRepository.deleteAll(subscriptionRepository.findAllByShopId(shop.getId()));
         } catch (Exception e) {
             throw new Exception("System error: Cannot delete related posts");
         }
