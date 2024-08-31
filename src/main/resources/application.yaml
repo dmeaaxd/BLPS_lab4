@@ -4,7 +4,12 @@ spring:
     username: postgres
     password: password
 
-spring.jpa.generate-ddl: true
+  jpa.generate-ddl: true
+
+  activemq:
+    broker-url: tcp://80.242.57.251:61616
+    user: admin
+    password: admin
 
 server.port: 8081
 

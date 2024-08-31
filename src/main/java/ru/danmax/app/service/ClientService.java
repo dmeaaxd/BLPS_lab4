@@ -1,0 +1,85 @@
+package ru.danmax.app.service;
+
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+import ru.danmax.app.dto.AuthorizationDTO;
+import ru.danmax.app.dto.RegistrationDTO;
+import ru.danmax.app.entity.Role;
+import ru.danmax.app.entity.Client;
+import ru.danmax.app.repository.RoleRepository;
+import ru.danmax.app.repository.ClientRepository;
+import ru.danmax.app.utils.BCryptPasswordEncoder;
+
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+@Service
+@AllArgsConstructor
+public class ClientService {
+    private ClientRepository clientRepository;
+    private RoleRepository roleRepository;
+
+    public Client auth(AuthorizationDTO authorizationDTO) throws Exception {
+        if (authorizationDTO.isFieldEmpty()){
+            throw new Exception("Fields cannot be empty");
+        }
+
+        Client client = clientRepository.findByUsername(authorizationDTO.getUsername())
+                .orElseThrow(() -> new Exception("User not found"));
+
+
+        BCryptPasswordEncoder passwordEncoder = BCryptPasswordEncoder.getInstance();
+        if (!passwordEncoder.matches(authorizationDTO.getPassword(), client.getPassword())){
+            throw new Exception("Incorrect user data");
+        }
+
+        return client;
+    }
+
+    public void register(RegistrationDTO registrationDTO) throws Exception{
+        if (registrationDTO.isFieldEmpty()){
+            throw new Exception("Fields cannot be empty");
+        }
+
+        if (clientRepository.existsByUsername(registrationDTO.getUsername())) {
+            throw new Exception("Username is already taken");
+        }
+
+        if (clientRepository.existsByEmail(registrationDTO.getEmail())) {
+            throw new Exception("Email is already taken");
+        }
+
+        BCryptPasswordEncoder passwordEncoder = BCryptPasswordEncoder.getInstance();
+
+        Client client = Client.builder()
+                .username(registrationDTO.getUsername())
+                .email(registrationDTO.getEmail())
+                .password(passwordEncoder.encode(registrationDTO.getPassword()))
+                .build();
+
+        Role role = roleRepository.findByName("USER");
+        Set<Role> roles = new HashSet<>();
+        roles.add(role);
+        client.setRoles(roles);
+
+        clientRepository.save(client);
+    }
+
+    public boolean isClientSystemAdmin(Long clientId) throws Exception {
+        if (clientId == null){
+            throw new Exception("ClientId cannot be empty");
+        }
+
+        Client client = clientRepository.findById(clientId)
+                .orElseThrow(() -> new Exception("User not found"));
+
+        Set<Role> roles = client.getRoles();
+        for (Role role : roles){
+            if (Objects.equals(role.getName(), "SYSTEM_ADMIN")){
+                return true;
+            }
+        }
+        return false;
+    }
+}
