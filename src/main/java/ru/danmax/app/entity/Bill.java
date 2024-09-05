@@ -17,6 +17,8 @@ public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @Column(nullable = false)
     private Long accountBill;
 
     @OneToOne(mappedBy = "accountBill")
