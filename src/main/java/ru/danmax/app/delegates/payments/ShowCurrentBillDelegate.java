@@ -13,9 +13,9 @@ public class ShowCurrentBillDelegate implements JavaDelegate {
     private final PaymentService paymentService;
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long clientId = (Long) delegateExecution.getVariable("clientId");
+        Long clientId = (Long) delegateExecution.getVariable("client_id");
         Bill bill = paymentService.getBill(clientId);
 
-        delegateExecution.setVariable("currentBill", bill.getAccountBill() + " у.е.");
+        delegateExecution.setVariable("bill", bill.getAccountBill() + " у.е.");
     }
 }
