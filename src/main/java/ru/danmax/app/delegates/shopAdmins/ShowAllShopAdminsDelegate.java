@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import ru.danmax.app.entity.Client;
-import ru.danmax.app.entity.Shop;
 import ru.danmax.app.service.ShopAdminsService;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class ShowAllShopAdminsDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long shopId = (Long) delegateExecution.getVariable("shopId");
+        Long shopId = (Long) delegateExecution.getVariable("shop_id");
         List<Client> admins = shopAdminsService.getShopAdmins(shopId);
 
         delegateExecution.setVariable("shop_admins_count", admins.size());

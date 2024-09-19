@@ -153,7 +153,7 @@
     <bpmn:sequenceFlow id="Flow_0qtmzt9" sourceRef="Activity_0n3zix1" targetRef="Activity_0xogldm" />
     <bpmn:sequenceFlow id="Flow_0os0k53" sourceRef="Activity_0xogldm" targetRef="Event_0i8mbck" />
   </bpmn:process>
-  <bpmn:process id="Process_0avm46y" isExecutable="false">
+  <bpmn:process id="Process_0avm46y" name="Удаление предложения" isExecutable="true" camunda:historyTimeToLive="100" camunda:isStartableInTasklist="false">
     <bpmn:startEvent id="Event_0d18nds" name="Открыта карточка предложения">
       <bpmn:outgoing>Flow_10zqwgw</bpmn:outgoing>
     </bpmn:startEvent>
