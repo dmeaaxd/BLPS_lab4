@@ -9,7 +9,7 @@
     <bpmn:textAnnotation id="TextAnnotation_0m7noeb">
       <bpmn:text>Вернет:
 - shops: String - json список всех магазинов
-- shops_count: String - количество всех магазинов</bpmn:text>
+- shops_count: Long - количество всех магазинов</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_0vaiyi6" associationDirection="None" sourceRef="Participant_094qjty" targetRef="TextAnnotation_0m7noeb" />
     <bpmn:textAnnotation id="TextAnnotation_0wdve5p">
@@ -18,7 +18,7 @@
 - shop_name: String - наименование магазина
 - shop_description: String - описание магазина
 - shop_category: String - наименование категории магазина
-- shop_discounts_count: String- количество предложений магазина
+- shop_discounts_count: Long - количество предложений магазина
 - shop_discounts: String - json список всех предложений магазина</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_1qhjk26" associationDirection="None" sourceRef="Participant_11nupt1" targetRef="TextAnnotation_0wdve5p" />
