@@ -124,7 +124,7 @@
     <bpmn:sequenceFlow id="Flow_1h6osyt" sourceRef="Activity_0y7g60h" targetRef="Activity_16ymvdz" />
     <bpmn:sequenceFlow id="Flow_0ysqzey" sourceRef="Activity_16ymvdz" targetRef="Event_0yvuxnx" />
   </bpmn:process>
-  <bpmn:process id="Process_01atnso" name="Изменение категории" isExecutable="true" camunda:historyTimeToLive="100" camunda:isStartableInTasklist="false">
+  <bpmn:process id="Process_01atnso" name="Удаление категории" isExecutable="true" camunda:historyTimeToLive="100" camunda:isStartableInTasklist="false">
     <bpmn:startEvent id="Event_0j1lc2a" name="Открыт список категорий">
       <bpmn:outgoing>Flow_04u959h</bpmn:outgoing>
     </bpmn:startEvent>
