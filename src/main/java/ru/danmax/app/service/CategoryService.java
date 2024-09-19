@@ -70,4 +70,12 @@ public class CategoryService {
         categoryRepository.delete(category);
     }
 
+    public Category getCategoryById(Long id) throws Exception{
+        if (id == null){
+            throw new Exception("Category id cannot be empty");
+        }
+
+        return categoryRepository.findById(id)
+                .orElseThrow(() -> new Exception("Category not found"));
+    }
 }

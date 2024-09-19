@@ -13,7 +13,7 @@ public class CreateCategoryDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        String name = (String) delegateExecution.getVariable("categoryName");
+        String name = (String) delegateExecution.getVariable("category_name");
         categoryService.create(name);
     }
 }

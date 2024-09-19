@@ -13,8 +13,8 @@ public class UpdateCategoryDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long id = (Long) delegateExecution.getVariable("categoryId");
-        String name = (String) delegateExecution.getVariable("categoryName");
+        Long id = (Long) delegateExecution.getVariable("category_id");
+        String name = (String) delegateExecution.getVariable("category_name");
         categoryService.update(id, name);
     }
 }
