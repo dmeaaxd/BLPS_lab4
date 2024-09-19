@@ -210,7 +210,7 @@
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1th36yd_di" bpmnElement="TextAnnotation_1th36yd">
-        <dc:Bounds x="1150" y="80" width="380" height="60" />
+        <dc:Bounds x="1150" y="80" width="379.9942140656758" height="59.98838737035878" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1722se1_di" bpmnElement="TextAnnotation_1722se1">

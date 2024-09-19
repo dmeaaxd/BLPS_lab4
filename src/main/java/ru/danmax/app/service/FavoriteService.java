@@ -27,6 +27,24 @@ public class FavoriteService {
         return favoriteRepository.findAllByClientId(clientId);
     }
 
+    public boolean isShopInFavorites(Long clientId, Long shopId) throws Exception {
+        if (clientId == null) {
+            throw new Exception("Client id cannot be empty");
+        }
+
+        clientRepository.findById(clientId)
+                .orElseThrow(() -> new Exception("User not found"));
+
+        if (shopId == null) {
+            throw new Exception("Shop id cannot be empty");
+        }
+
+        shopRepository.findById(shopId)
+                .orElseThrow(() -> new Exception("Shop not found"));
+
+        return favoriteRepository.existsByClientIdAndShopId(clientId, shopId);
+    }
+
     public void add(Long clientId, Long shopId) throws Exception {
         if (clientId == null) {
             throw new Exception("Client id cannot be empty");
