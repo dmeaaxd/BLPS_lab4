@@ -12,8 +12,8 @@ public class AddShopToFavoritesDelegate implements JavaDelegate {
     private final FavoriteService favoriteService;
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long clientId = (Long) delegateExecution.getVariable("clientId");
-        Long shopId = (Long) delegateExecution.getVariable("shopId");
+        Long clientId = (Long) delegateExecution.getVariable("client_id");
+        Long shopId = (Long) delegateExecution.getVariable("shop_id");
 
         favoriteService.add(clientId, shopId);
     }
