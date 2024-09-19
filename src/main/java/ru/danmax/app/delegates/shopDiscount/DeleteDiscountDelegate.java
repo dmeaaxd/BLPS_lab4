@@ -13,7 +13,7 @@ public class DeleteDiscountDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long discountId = (Long) delegateExecution.getVariable("discountId");
+        Long discountId = (Long) delegateExecution.getVariable("discount_id");
         shopDiscountService.delete(discountId);
     }
 }

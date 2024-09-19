@@ -14,10 +14,10 @@ public class UpdateDiscountDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long discountId = (Long) delegateExecution.getVariable("discountId");
-        String title = (String) delegateExecution.getVariable("discountTitle");
-        String description = (String) delegateExecution.getVariable("discountDescription");
-        String promoCode = (String) delegateExecution.getVariable("discountPromoCode");
+        Long discountId = (Long) delegateExecution.getVariable("discount_id");
+        String title = (String) delegateExecution.getVariable("discount_title");
+        String description = (String) delegateExecution.getVariable("discount_description");
+        String promoCode = (String) delegateExecution.getVariable("discount_promocode");
 
 
         shopDiscountService.update(UpdateDiscountDTO.builder()
