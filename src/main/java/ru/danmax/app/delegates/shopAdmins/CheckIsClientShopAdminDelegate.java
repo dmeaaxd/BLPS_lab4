@@ -13,10 +13,10 @@ public class CheckIsClientShopAdminDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long clientId = (Long) delegateExecution.getVariable("clientId");
-        Long shopId = (Long) delegateExecution.getVariable("shopId");
+        Long clientId = (Long) delegateExecution.getVariable("client_id");
+        Long shopId = (Long) delegateExecution.getVariable("shop_id");
 
         boolean result = shopAdminsService.isClientShopAdmin(clientId, shopId);
-        delegateExecution.setVariable("isShopAdmin", result);
+        delegateExecution.setVariable("is_shop_admin", result);
     }
 }

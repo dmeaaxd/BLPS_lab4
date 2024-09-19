@@ -15,8 +15,8 @@ public class UpdateShopAdminsDelegate implements JavaDelegate {
     private final ShopAdminsService shopAdminsService;
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long shopId = (Long) delegateExecution.getVariable("shopId");
-        String admins = (String) delegateExecution.getVariable("shopAdmins");
+        Long shopId = (Long) delegateExecution.getVariable("shop_id");
+        String admins = (String) delegateExecution.getVariable("updated_shop_admins");
 
         List<Long> adminIdList = parseAdminIdsFromString(admins);
 
