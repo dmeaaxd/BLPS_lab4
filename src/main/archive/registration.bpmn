@@ -3,7 +3,7 @@
   <bpmn:collaboration id="Collaboration_0qqwv3v">
     <bpmn:participant id="Participant_10f7xw9" name="Registration" processRef="Process_0935p2t" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_0935p2t" name="Registration" isExecutable="true" camunda:historyTimeToLive="100">
+  <bpmn:process id="Process_0935p2t" name="Registration" isExecutable="true" camunda:historyTimeToLive="100" camunda:isStartableInTasklist="false">
     <bpmn:laneSet id="LaneSet_1xi7b5d">
       <bpmn:lane id="Lane_0spvb7p" name="User">
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
@@ -17,7 +17,7 @@
     <bpmn:startEvent id="StartEvent_1" name="Start">
       <bpmn:outgoing>Flow_0efhszr</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:userTask id="Activity_1tnhup0" name="Fill registration form">
+    <bpmn:userTask id="Activity_1tnhup0" name="Заполните форму регистрации">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="username" label="Логин" type="string" />
@@ -28,7 +28,7 @@
       <bpmn:incoming>Flow_0efhszr</bpmn:incoming>
       <bpmn:outgoing>Flow_1qbdr9c</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:serviceTask id="Activity_0v7c7py" name="Registration" camunda:delegateExpression="#{registration}">
+    <bpmn:serviceTask id="Activity_0v7c7py" name="Регистрация" camunda:delegateExpression="#{registration}">
       <bpmn:incoming>Flow_1qbdr9c</bpmn:incoming>
       <bpmn:outgoing>Flow_1d2ata3</bpmn:outgoing>
     </bpmn:serviceTask>

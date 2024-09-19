@@ -13,12 +13,12 @@ public class ShowCurrentDiscountDelegate implements JavaDelegate {
     private final ShopDiscountService shopDiscountService;
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long discountId = (Long) delegateExecution.getVariable("discountId");
+        Long discountId = (Long) delegateExecution.getVariable("discount_id");
         Discount discount = shopDiscountService.getCurrent(discountId);
 
-        delegateExecution.setVariable("currentDiscount_id", discount.getId());
-        delegateExecution.setVariable("currentDiscount_title", discount.getTitle());
-        delegateExecution.setVariable("currentDiscount_description", discount.getDescription());
-        delegateExecution.setVariable("currentDiscount_promoCode", discount.getPromoCode());
+        delegateExecution.setVariable("discount_id", discount.getId());
+        delegateExecution.setVariable("discount_title", discount.getTitle());
+        delegateExecution.setVariable("discount_description", discount.getDescription());
+        delegateExecution.setVariable("discount_promocode", discount.getPromoCode());
     }
 }

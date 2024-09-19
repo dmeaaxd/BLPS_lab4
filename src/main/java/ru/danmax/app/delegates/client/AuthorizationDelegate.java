@@ -6,7 +6,10 @@ import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import ru.danmax.app.dto.AuthorizationDTO;
 import ru.danmax.app.entity.Client;
+import ru.danmax.app.entity.Role;
 import ru.danmax.app.service.ClientService;
+
+import java.util.Set;
 
 @Named("authorization")
 @RequiredArgsConstructor
@@ -23,6 +26,19 @@ public class AuthorizationDelegate implements JavaDelegate {
                 .password(password)
                 .build());
 
+        Role clientRole = findRole(client.getRoles());
+
         delegateExecution.setVariable("clientId", client.getId());
+        delegateExecution.setVariable("role", clientRole.getName());
+    }
+
+    private Role findRole(Set<Role> roles){
+        if (roles.contains(Role.builder().name("SYSTEM_ADMIN").build())){
+            return Role.builder().name("SYSTEM_ADMIN").build();
+        }
+        if (roles.contains(Role.builder().name("SHOP_ADMIN").build())){
+            return Role.builder().name("SHOP_ADMIN").build();
+        }
+        return  Role.builder().name("USER").build();
     }
 }
