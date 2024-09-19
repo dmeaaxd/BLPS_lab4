@@ -13,7 +13,7 @@ public class DeleteShopDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long shopId = (Long) delegateExecution.getVariable("shopId");
+        Long shopId = (Long) delegateExecution.getVariable("shop_id");
         shopService.delete(shopId);
     }
 }

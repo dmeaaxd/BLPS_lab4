@@ -14,9 +14,9 @@ public class CreateShopDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        String name = (String) delegateExecution.getVariable("shopName");
-        String description = (String) delegateExecution.getVariable("shopDescription");
-        Long categoryId = (Long) delegateExecution.getVariable("shopCategory");
+        String name = (String) delegateExecution.getVariable("shop_name");
+        String description = (String) delegateExecution.getVariable("shop_description");
+        Long categoryId = (Long) delegateExecution.getVariable("shop_category_id");
 
         shopService.create(CreateShopDTO.builder()
                 .name(name)

@@ -14,10 +14,10 @@ public class UpdateShopDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        Long shopId = (Long) delegateExecution.getVariable("shopId");
-        String name = (String) delegateExecution.getVariable("shopName");
-        String description = (String) delegateExecution.getVariable("shopDescription");
-        Long categoryId = (Long) delegateExecution.getVariable("shopCategory");
+        Long shopId = (Long) delegateExecution.getVariable("shop_id");
+        String name = (String) delegateExecution.getVariable("shop_name");
+        String description = (String) delegateExecution.getVariable("shop_description");
+        Long categoryId = (Long) delegateExecution.getVariable("shop_category_id");
 
         shopService.update(UpdateShopDTO.builder()
                 .shopId(shopId)
