@@ -9,6 +9,7 @@ import ru.danmax.app.entity.Client;
 import ru.danmax.app.entity.Role;
 import ru.danmax.app.service.ClientService;
 
+import java.util.Objects;
 import java.util.Set;
 
 @Named("authorization")
@@ -33,12 +34,20 @@ public class AuthorizationDelegate implements JavaDelegate {
     }
 
     private Role findRole(Set<Role> roles){
-        if (roles.contains(Role.builder().name("SYSTEM_ADMIN").build())){
-            return Role.builder().name("SYSTEM_ADMIN").build();
+        boolean isSystemAdmin = false;
+        boolean isShopAdmin = false;
+
+        for (Role role : roles){
+            if (Objects.equals(role.getName(), "SYSTEM_ADMIN")){
+                isSystemAdmin = true;
+            }
+            if (Objects.equals(role.getName(), "SHOP_ADMIN")){
+                isShopAdmin = true;
+            }
         }
-        if (roles.contains(Role.builder().name("SHOP_ADMIN").build())){
-            return Role.builder().name("SHOP_ADMIN").build();
-        }
+
+        if (isSystemAdmin) return Role.builder().name("SYSTEM_ADMIN").build();
+        if (isShopAdmin) return Role.builder().name("SHOP_ADMIN").build();
         return  Role.builder().name("USER").build();
     }
 }
