@@ -35,7 +35,7 @@
     </bpmn:callActivity>
     <bpmn:callActivity id="Activity_17d0i3x" name="Авторизация" calledElement="Process_0i774h8">
       <bpmn:extensionElements>
-        <camunda:out source="clientId" target="clientId" />
+        <camunda:out source="client_id" target="client_id" />
         <camunda:out source="role" target="role" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0f563g2</bpmn:incoming>

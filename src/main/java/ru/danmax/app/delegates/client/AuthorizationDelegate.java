@@ -29,7 +29,7 @@ public class AuthorizationDelegate implements JavaDelegate {
 
         Role clientRole = findRole(client.getRoles());
 
-        delegateExecution.setVariable("clientId", client.getId());
+        delegateExecution.setVariable("client_id", client.getId());
         delegateExecution.setVariable("role", clientRole.getName());
     }
 
