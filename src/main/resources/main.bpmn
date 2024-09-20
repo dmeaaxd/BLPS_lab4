@@ -426,7 +426,7 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{shop_discounts_count &gt; 0}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0qm754y" name="= 0" sourceRef="Gateway_17vnssy" targetRef="Gateway_1jzolyn">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{shop_discounts_count &gt; 0}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{shop_discounts_count == 0}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0qzj98h" name="Да" sourceRef="Gateway_1wt08z2" targetRef="Activity_1cllmbm">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{is_shop_in_favorites == true}</bpmn:conditionExpression>
@@ -1012,7 +1012,7 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{shop_discounts_count &gt; 0}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_045ezht" name="= 0" sourceRef="Gateway_0g619te" targetRef="Gateway_1urhnnp">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{shop_discounts_count &gt; 0}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{shop_discounts_count == 0}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_06wp1j5" name="Да" sourceRef="Gateway_13q6k9j" targetRef="Activity_0g292s8">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{is_shop_in_favorites == true}</bpmn:conditionExpression>
