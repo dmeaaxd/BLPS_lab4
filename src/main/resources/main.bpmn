@@ -355,7 +355,7 @@
           <camunda:formField id="action_2" label="Действие" type="enum" defaultValue="end">
             <camunda:value id="end" name="Завершить процесс" />
             <camunda:value id="open_discount" name="Открыть карточку предложения" />
-            <camunda:value id="add_favorite" name="Удалить из избранного" />
+            <camunda:value id="add_favorite" name="Добавить в избранное" />
             <camunda:value id="subcribe" name="Оформить/продлить подписку" />
           </camunda:formField>
         </camunda:formData>
@@ -386,7 +386,7 @@
         <camunda:formData>
           <camunda:formField id="action_2" label="Действие" type="enum" defaultValue="end">
             <camunda:value id="end" name="Завершить процесс" />
-            <camunda:value id="add_favorite" name="Удалить из избранного" />
+            <camunda:value id="add_favorite" name="Добавить в избранное" />
             <camunda:value id="subcribe" name="Оформить/продлить подписку" />
           </camunda:formField>
         </camunda:formData>
@@ -653,7 +653,7 @@
           <camunda:formField id="action_3" label="Действие" type="enum" defaultValue="end">
             <camunda:value id="end" name="Завершить процесс" />
             <camunda:value id="open_discount" name="Открыть карточку предложения" />
-            <camunda:value id="add_favorite" name="Удалить из избранного" />
+            <camunda:value id="add_favorite" name="Добавить в избранное" />
             <camunda:value id="subcribe" name="Оформить/продлить подписку" />
             <camunda:value id="update_shop" name="Изменить магазин" />
             <camunda:value id="delete_shop" name="Удалить магазин" />
@@ -690,7 +690,7 @@
         <camunda:formData>
           <camunda:formField id="action_3" label="Действие" type="enum" defaultValue="end">
             <camunda:value id="end" name="Завершить процесс" />
-            <camunda:value id="add_favorite" name="Удалить из избранного" />
+            <camunda:value id="add_favorite" name="Добавить в избранное" />
             <camunda:value id="subcribe" name="Оформить/продлить подписку" />
             <camunda:value id="update_shop" name="Изменить магазин" />
             <camunda:value id="delete_shop" name="Удалить магазин" />
@@ -1238,7 +1238,7 @@
           <camunda:formField id="action_3" label="Действие" type="enum" defaultValue="end">
             <camunda:value id="end" name="Завершить процесс" />
             <camunda:value id="open_discount" name="Открыть карточку предложения" />
-            <camunda:value id="add_favorite" name="Удалить из избранного" />
+            <camunda:value id="add_favorite" name="Добавить в избранное" />
             <camunda:value id="subcribe" name="Оформить/продлить подписку" />
           </camunda:formField>
         </camunda:formData>
@@ -1269,7 +1269,7 @@
         <camunda:formData>
           <camunda:formField id="action_3" label="Действие" type="enum" defaultValue="end">
             <camunda:value id="end" name="Завершить процесс" />
-            <camunda:value id="add_favorite" name="Удалить из избранного" />
+            <camunda:value id="add_favorite" name="Добавить в избранное" />
             <camunda:value id="subcribe" name="Оформить/продлить подписку" />
           </camunda:formField>
         </camunda:formData>
@@ -1357,7 +1357,7 @@
           <camunda:formField id="action_3" label="Действие" type="enum" defaultValue="end">
             <camunda:value id="end" name="Завершить процесс" />
             <camunda:value id="open_discount" name="Открыть карточку предложения" />
-            <camunda:value id="add_favorite" name="Удалить из избранного" />
+            <camunda:value id="add_favorite" name="Добавить в избранное" />
             <camunda:value id="subcribe" name="Оформить/продлить подписку" />
             <camunda:value id="update_shop" name="Изменить магазин" />
             <camunda:value id="create_discount" name="Создать предложение" />
@@ -1387,7 +1387,7 @@
         <camunda:formData>
           <camunda:formField id="action_3" label="Действие" type="enum" defaultValue="end">
             <camunda:value id="end" name="Завершить процесс" />
-            <camunda:value id="add_favorite" name="Удалить из избранного" />
+            <camunda:value id="add_favorite" name="Добавить в избранное" />
             <camunda:value id="subcribe" name="Оформить/продлить подписку" />
             <camunda:value id="update_shop" name="Изменить магазин" />
             <camunda:value id="create_discount" name="Создать предложение" />
