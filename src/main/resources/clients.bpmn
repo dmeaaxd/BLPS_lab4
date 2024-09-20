@@ -48,10 +48,10 @@
     <bpmn:sequenceFlow id="Flow_1shsn31" sourceRef="StartEvent_1" targetRef="Activity_0dbgp3b" />
     <bpmn:sequenceFlow id="Flow_12o8di3" sourceRef="Activity_0dbgp3b" targetRef="Gateway_10g4hl1" />
     <bpmn:sequenceFlow id="Flow_1d2ysmt" name="Да" sourceRef="Gateway_10g4hl1" targetRef="Activity_04rxfcp">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{firstStepFlag == 'yes'}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{firstStepFlag == 'no'}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1nn4ndg" name="Нет" sourceRef="Gateway_10g4hl1" targetRef="Activity_17d0i3x">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{firstStepFlag == 'no'}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{firstStepFlag == 'yes'}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0f563g2" sourceRef="Activity_04rxfcp" targetRef="Activity_17d0i3x" />
     <bpmn:sequenceFlow id="Flow_1rdoasi" sourceRef="Activity_17d0i3x" targetRef="Event_0p36axl" />
