@@ -513,9 +513,7 @@
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="action_4" label="Хотите пополнить счет?" type="boolean" defaultValue="true">
-            <camunda:validation>
-              <camunda:constraint name="required" config="1" />
-            </camunda:validation>
+            <camunda:validation />
           </camunda:formField>
         </camunda:formData>
       </bpmn:extensionElements>
@@ -821,9 +819,7 @@
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="action_5" label="Хотите обновить администраторов магазина?" type="boolean" defaultValue="true">
-            <camunda:validation>
-              <camunda:constraint name="required" config="1" />
-            </camunda:validation>
+            <camunda:validation />
           </camunda:formField>
         </camunda:formData>
       </bpmn:extensionElements>
@@ -886,9 +882,7 @@
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="action_4" label="Хотите пополнить счет?" type="boolean" defaultValue="true">
-            <camunda:validation>
-              <camunda:constraint name="required" config="1" />
-            </camunda:validation>
+            <camunda:validation />
           </camunda:formField>
         </camunda:formData>
       </bpmn:extensionElements>
@@ -1495,9 +1489,7 @@
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="action_4" label="Хотите пополнить счет?" type="boolean" defaultValue="true">
-            <camunda:validation>
-              <camunda:constraint name="required" config="1" />
-            </camunda:validation>
+            <camunda:validation />
           </camunda:formField>
         </camunda:formData>
       </bpmn:extensionElements>
